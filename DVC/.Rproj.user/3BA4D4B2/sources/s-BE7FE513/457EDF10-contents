@@ -10,3 +10,6 @@ library(dplyr)
 MainData <- read_csv("Data/Airplane_Crashes_and_Fatalities_Since_1908_1.csv") # import  data
 dim(MainData)
 summary(MainData)
+
+MainData$Date<-MainData$Date %>% parse_datetime("%m/%d/%Y")
+summary(MainData)
