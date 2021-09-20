@@ -14,6 +14,12 @@ summary(MainData)
 MainData$Date<-MainData$Date %>% parse_datetime("%m/%d/%Y")
 summary(MainData)
 
+## Data Description ####
+names(MainData)
+str(MainData)
+
+
+## Test #####
 table1 <- data.frame(table(format(MainData$Date, format = "%Y")) )
 table1
 
@@ -38,6 +44,7 @@ ggplot(data=xx,
        mapping = aes(x=date, y=crashes, group=1)) +
   geom_line()
 
+## Insight # 2 Crashes by Month and Hour ####
 MainData
 names(MainData)
 
@@ -111,5 +118,6 @@ unique(MainData$Time)
 
 MainData
 table1 <- data.frame(table(format(MainData$Date, format = "%Y")) )
+
 
   
