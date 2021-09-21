@@ -3,7 +3,7 @@
     "path": "~/Documents/GitHub/DVC-Final-Project/R Templates/Master R Templates.R",
     "project_path": null,
     "type": "r_source",
-    "hash": "0",
+    "hash": "3201769322",
     "contents": "",
     "dirty": false,
     "created": 1631903996162.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "12,28",
-        "scrollLine": "8"
+        "cursorPosition": "175,12",
+        "scrollLine": "163"
     },
     "folds": "",
-    "lastKnownWriteTime": 1631816001,
+    "lastKnownWriteTime": 1632240144,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1631816001,
+    "last_content_update": 1632240144775,
     "read_only": false,
     "read_only_alternatives": []
 }

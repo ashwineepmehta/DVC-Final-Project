@@ -99,3 +99,78 @@ Three variables:
   geom_tile(): tile the plane with rectangles.
   geom_raster(): fast version of geom_tile() for equal sized tiles.
 
+  
+  
+  ## Test #####
+  table1 <- data.frame(table(format(MainData$Date, format = "%Y")) )
+  table1
+  
+  names(table1)[1] <- "date"
+  names(table1)[2] <- "crashes"
+  table1
+  str(table1)
+  
+  
+  table1 <- table1 %>%
+    mutate( paste(substr(date, 1, 3), "0", sep=""))
+  table1
+  names(table1)[2] <- "crashes"
+  names(table1)[3] <- "date2"
+  table1
+  
+  xx<-aggregate(crashes ~ date2, table1, sum)
+  names(xx)[1] <- "date"
+  xx
+  
+  ggplot(data=xx, 
+         mapping = aes(x=date, y=crashes, group=1)) +
+    geom_line()
+  
+  
+  fig3<-aggregate(count~hour,figu2,sum)
+  fig3
+  ggplot(data = fig3, 
+         mapping = aes(x=hour, 
+                       y=count,
+                       group=1
+         ))+
+    geom_line(color = 'dark blue')
+  
+  fig4<-aggregate(count~month,figu2,sum)
+  fig4
+  ggplot(data = fig4, 
+         mapping = aes(x=month, 
+                       y=count,
+                       group=1
+         ))+
+    geom_line(color = 'dark blue')
+  
+  
+  mydate = as.POSIXlt('1981-4-19 7:01:00')
+  
+  mydate
+  
+  ?as.POSIXlt
+  as.POSIXlt(MainData$Date)
+  
+  as.POSIXlt(MainData$Time,  
+             format ="%H:%M:%OS", optional = FALSE)$hour
+  
+  
+  ggplot(data = MainData, mapping = aes(
+    y= format(Time, format = "%h"), 
+    x=format(MainData$Date, format = "%m")),
+    group_by(format(Time, format = "%h")),
+    color = "count")+
+    geom_tile() +
+    labs(x="Month", y="Time", title="Crashes by time by month")
+  
+  unique(MainData$Time)  
+  
+  MainData
+  table1 <- data.frame(table(format(MainData$Date, format = "%Y")) )
+  
+  figu2_data
+  
+  figu2_data<-aggregate(count ~ . , figu2_data, sum)
+  figu2_data
