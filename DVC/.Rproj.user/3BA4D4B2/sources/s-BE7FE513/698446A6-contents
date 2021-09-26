@@ -1,0 +1,21 @@
+# ICE # 5 ####
+
+## Importing libraries ####
+library(ggplot2)
+library(gapminder)
+names(gapminder)
+
+
+## Facet by year ####
+p <- ggplot(data = gapminder,
+            mapping = aes(x = year,
+                          y = gdpPercap))
+p + geom_line(aes(group = country)) + facet_wrap(~ year)
+ggsave(filename="Gapminder_year.pdf")
+
+## Facet by Country ####
+p <- ggplot(data = gapminder,
+            mapping = aes(x = year,
+                          y = gdpPercap))
+p + geom_line(aes(group = country)) + facet_wrap(~ country)
+ggsave(filename="Gapminder_country.pdf")

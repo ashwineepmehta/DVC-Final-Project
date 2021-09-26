@@ -26,6 +26,7 @@ figu2_data <- data.frame(table(format(MainData$Date,"%m"),
                           format ="%H:%M:%OS", 
                           optional = FALSE)$hour))
 
+figu2_data
 names(figu2_data)[1] <- "month"
 names(figu2_data)[2] <- "hour"
 names(figu2_data)[3] <- "count"
