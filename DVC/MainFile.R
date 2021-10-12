@@ -36,11 +36,48 @@ fig2<- ggplot(data = figu2_data, mapping = aes(
   x= month,
   fill = count))+
   geom_tile() +
-  scale_fill_gradient(low="light blue", high="dark blue") +
+  scale_fill_gradient(low="light blue", high="dark red") +
   geom_text(aes(label=count))+
   theme(text = element_text(size = 18, face = "bold") , plot.title = element_text(hjust = 0.5))+
   labs(x="Month", y="Hour", title="Crashes by time by month")
 fig2
 
+## Insight # 4 - Wordcloud Crashes summary ####
+
+
+install.packages("remotes")
+remotes::install_github("kwanjeeraw/radiant.wordcloud")
+library(wordcloud)
+install.packages("RColorBrewer")
+library(RColorBrewer)
+install.packages("wordcloud2")
+library(wordcloud2)
+install.packages("tm")
+library(tm)
+library("NLP")
+#Create a vector containing only the text
+text <- MainData$Summary
+
+# remove none ascii characters
+text <- iconv(text, "latin1", "ASCII", sub="")
+
+# Create a corpus  
+docs <- Corpus(VectorSource(text))
+
+dtm <- TermDocumentMatrix(docs,control = list(removePunctuation = TRUE,
+                                              stopwords = TRUE)) 
+?TermDocumentMatrix
+matrix <- as.matrix(dtm) 
+words <- sort(rowSums(matrix),decreasing=TRUE) 
+df <- data.frame(word = names(words),freq=words)
+df = df[-3,]
+df = df[-2,]
+df = df[-1,]
+head(df,30)
+
+set.seed(1234) # for reproducibility 
+wordcloud(words = df$word, freq = df$freq, min.freq = 1,
+          max.words=30, random.order=TRUE, rot.per=0.35,
+          colors=brewer.pal(8, "Dark2"))
 
 
