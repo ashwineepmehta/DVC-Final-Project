@@ -3,7 +3,7 @@
     "path": "~/Documents/GitHub/DVC-Final-Project/DVC/MainFile.R",
     "project_path": "MainFile.R",
     "type": "r_source",
-    "hash": "3308670588",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1631902531742.0,
@@ -13,7 +13,7 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "81,0",
+        "cursorPosition": "80,40",
         "scrollLine": "71"
     },
     "folds": "",
